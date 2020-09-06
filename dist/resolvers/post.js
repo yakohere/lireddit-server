@@ -19,6 +19,9 @@ let PostResolver = class PostResolver {
     posts({ em }) {
         return em.find(Post_1.Post, {});
     }
+    post(id, { em }) {
+        return em.findOne(Post_1.Post, { id });
+    }
 };
 __decorate([
     type_graphql_1.Query(() => [Post_1.Post]),
@@ -27,6 +30,14 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], PostResolver.prototype, "posts", null);
+__decorate([
+    type_graphql_1.Query(() => Post_1.Post, { nullable: true }),
+    __param(0, type_graphql_1.Arg("id", () => type_graphql_1.Int)),
+    __param(1, type_graphql_1.Ctx()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, Object]),
+    __metadata("design:returntype", Promise)
+], PostResolver.prototype, "post", null);
 PostResolver = __decorate([
     type_graphql_1.Resolver()
 ], PostResolver);
