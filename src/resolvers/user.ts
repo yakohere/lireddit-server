@@ -80,6 +80,7 @@ export class UserResolver {
       username: options.username,
       password: hashedPassword,
     });
+    
     try {
       await em.persistAndFlush(user);
     } catch (err) {
